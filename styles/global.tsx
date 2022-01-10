@@ -1,10 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-
 //fonts Light 300, Regular 400
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
@@ -29,16 +27,13 @@ time, mark, audio, video,input {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: middle;f
+  vertical-align: middle;
 }
-
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section {
   display: block;
 }
-
 /* HTML5 hidden-attribute fix for newer browsers */
 *[hidden] {
     display: none;
@@ -60,10 +55,8 @@ table {
 }
 body {
   line-height: 1;
-  font-family: 'Source Sans Pro', sans-serif; 
-  color: "blue";
+  font-family: 'Source Sans Pro', sans-serif;
   font-size:14px;
-
 }
 a {
     text-decoration: none; /* 모든 a tag에 밑줄 없애기 */
