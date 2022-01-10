@@ -1,0 +1,5 @@
+// .babelrc 바벨 설정 추가
+{
+    "presets": ["next/babel"],
+    "plugins": ["styled-components"]
+}
