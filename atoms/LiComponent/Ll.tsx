@@ -24,7 +24,7 @@ export default function Li(props: ILi) {
       </>
     );
   }
-  // 넘어온 자식요소가 배열인 경우 (li 태그의 content만 다중으로 리턴)
+  // 넘어온 자식요소가 배열인 경우
   else if (Array.isArray(props.children)) {
     return (
       <>
@@ -34,8 +34,8 @@ export default function Li(props: ILi) {
       </>
     );
   }
-  // 넘어온 자식요소가 string인 경우 (li 태그의 content를 단일로 리턴)
-  else if (typeof props.children == 'string') {
+  // 넘어온 자식요소가 string이거나 Element인 경우
+  else {
     return <LiStyle {...props}>{props.children}</LiStyle>;
   }
 }

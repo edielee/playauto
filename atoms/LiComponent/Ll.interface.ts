@@ -1,3 +1,7 @@
+import React from 'react';
+
 export interface ILi {
-  children: Map<string, string> | Array<string> | string;
+  children: React.ReactNode | Map<string, string> | Array<string> | string;
+
+  display?: string;
 }
