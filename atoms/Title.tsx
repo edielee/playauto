@@ -11,7 +11,6 @@ const H1Style = styled.h1<IH1>`
     margin-left: 10px;
     margin-right: 50px;
     font-size: large;
-    padding-top: 15px
   `;
 
 export default function Title(props) {
