@@ -14,7 +14,8 @@
     "@material-ui/core": "^5.0.0-beta.5",
     "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.2.1",
-    "@mui/material": "^5.2.3",
+    "@mui/material": "^5.2.8",
+    "@mui/styled-engine-sc": "^5.1.0",
     "@mui/styles": "^5.2.3",
     "@mui/x-data-grid": "^5.1.0",
     "@types/styled-components": "^5.1.15",
@@ -22,6 +23,8 @@
     "next": "^11.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-google-button": "^0.7.2",
+    "react-hook-form": "^7.24.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
