@@ -91,12 +91,12 @@ export default function SignUp() {
                 autoFocus
                 variant='outlined'
                 {...register('name', {required: '이름은 필수값입니다'})}
-                sx={{minWidth:'265px'}}
+                sx={{minWidth:'270px'}}
                 />
                 <Button
                     type="submit"
                     variant="contained"
-                    sx={{ ml:2.5, height:'55px' }}
+                    sx={{ ml:2, height:'55px' }}
                     onClick={(e) => idChk(e)}
                 >
                     ID 중복확인
@@ -111,6 +111,7 @@ export default function SignUp() {
                   label="이메일"
                   name="email"
                   autoComplete="email"
+                  sx={{maxWidth:'395px'}}
                   {...register('email', 
                     {
                         required: '이메일은 필수값입니다', 
@@ -131,6 +132,7 @@ export default function SignUp() {
                   label="ID"
                   name="id"
                   autoComplete="username"
+                  sx={{maxWidth:'395px'}}
                   {...register('id', {required: 'ID는 필수값입니다'})}
                 />
                 <FormHelperText>{errors.id?.message}</FormHelperText>
@@ -144,6 +146,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  sx={{maxWidth:'395px'}}
                   {...register(
                       'password', 
                       { required: '비밀번호는 필수값입니다', 
@@ -165,6 +168,7 @@ export default function SignUp() {
                   type="password"
                   id="password2"
                   autoComplete="new-password" 
+                  sx={{maxWidth:'395px'}}
                   {...register(
                       'password2', 
                       { required: '비밀번호 확인은 필수값입니다', 

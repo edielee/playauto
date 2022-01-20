@@ -104,12 +104,12 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 1 }}
+              sx={{ mt: 3, mb: 2 }}
             >
               로그인
             </Button>
-            <Grid container>
-              <Grid item >
+            <Grid container justifyContent="flex-end">
+              <Grid item>
                 <Link href="./signUp" variant="body2">
                   {"계정이 없나요? 회원가입 하기"}
                 </Link>
@@ -126,7 +126,7 @@ export default function SignIn() {
             <Grid container justifyContent={'flex-end'}>
                 <Grid item>
                     <GoogleButton 
-                        style={{marginBottom: '24px', width: '400px'}}
+                        style={{marginBottom: '24px', width: '395px'}}
                         onClick={() => { console.log('Google button clicked') }}
                     />
                 </Grid>
