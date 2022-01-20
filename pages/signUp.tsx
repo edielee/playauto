@@ -33,7 +33,12 @@ export default function SignUp() {
     const {register, handleSubmit, watch, formState:{errors}} = useForm<IFormInput>();
 
     const onSubmit = (data) => {
-        // console.log(data);
+        console.log(data);
+    }
+
+    const idChk = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        console.log('나 클릭했어?');
     }
     
     interface IFormInput {
@@ -42,12 +47,8 @@ export default function SignUp() {
         id: string;
         password: string;
         password2: string;
-        unit?: string;
     }
 
-    console.log(`=============== errors================`);
-    console.log(errors);
-    console.log(`======================================`);
     /*
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -59,7 +60,6 @@ export default function SignUp() {
         });
     };
     */
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -83,15 +83,24 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="이름"
-                  autoFocus
-                  {...register('name', {required: '이름은 필수값입니다'})}
+                autoComplete="name"
+                name="name"
+                required
+                id="name"
+                label="이름"
+                autoFocus
+                variant='outlined'
+                {...register('name', {required: '이름은 필수값입니다'})}
+                sx={{minWidth:'265px'}}
                 />
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ ml:2.5, height:'55px' }}
+                    onClick={(e) => idChk(e)}
+                >
+                    ID 중복확인
+                </Button>
                 <FormHelperText>{errors.name?.message}</FormHelperText>
               </Grid>
               <Grid item xs={12}>
@@ -165,16 +174,6 @@ export default function SignUp() {
                 />
                 <FormHelperText>{errors.password2?.message}</FormHelperText>
                 
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="organization-title"
-                  name="unit"
-                  fullWidth
-                  id="unit"
-                  label="소속 유닛"
-                  {...register('unit')}
-                />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel

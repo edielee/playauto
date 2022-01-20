@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GoogleButton from 'react-google-button'
+import { useForm } from 'react-hook-form';
+import {FormHelperText} from '@mui/material'
 
 function Copyright(props: any) {
   return (
@@ -28,15 +30,28 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  
+    const {register, handleSubmit, watch, formState:{errors}} = useForm<IFormInput>();
+
+    const onSubmit = (data) => {
+        console.log(data);
+    }
+    interface IFormInput {
+        id: string;
+        password: string;
+    }
+
+    /*
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        // eslint-disable-next-line no-console
+        console.log({
+            email: data.get('email'),
+            password: data.get('password'),
+        });
+    };
+    */
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,7 +71,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -66,7 +81,9 @@ export default function SignIn() {
               name="id"
               autoComplete="username"
               autoFocus
+              {...register('id', {required:'ID는 필수값입니다'})}
             />
+            <FormHelperText>{errors.id?.message}</FormHelperText>
             <TextField
               margin="normal"
               required
@@ -76,7 +93,9 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              {...register('password', {required:'비밀번호는 필수값입니다', minLength:{value:4, message:'비밀번호는 최소 4자리 이상입니다'}})}
             />
+            <FormHelperText>{errors.password?.message}</FormHelperText>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="ID 기억하기"
@@ -90,12 +109,7 @@ export default function SignIn() {
               로그인
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  비밀번호 찾기 
-                </Link>
-              </Grid>
-              <Grid item>
+              <Grid item >
                 <Link href="./signUp" variant="body2">
                   {"계정이 없나요? 회원가입 하기"}
                 </Link>
@@ -112,7 +126,7 @@ export default function SignIn() {
             <Grid container justifyContent={'flex-end'}>
                 <Grid item>
                     <GoogleButton 
-                        style={{marginBottom: '24px'}}
+                        style={{marginBottom: '24px', width: '400px'}}
                         onClick={() => { console.log('Google button clicked') }}
                     />
                 </Grid>
