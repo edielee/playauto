@@ -1,5 +1,6 @@
 import React from 'react';
-import { IAtoms } from '../index';
+//import { IAtoms } from '../index';
+import { IAtoms } from '../common/atomsInterface';
 
 export interface ISelect 
    extends Pick<IAtoms, 'name' | 'defaultSize' | 'list' | 'block' | 'defaultValue'> {
